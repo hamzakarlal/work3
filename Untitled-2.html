@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Animation for fade effect */
+        .fade {
+            animation: fade 0.5s ease-in-out;
+        }
+        @keyframes fade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+                   .fade{ animation: bounceIn 0.5s ease-in-out forwards;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: translateY(-100%);
+            }
+            50% {
+                transform: translateY(10%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+    <style>
+        /* CSS for sticky menu */
+        .sticky-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #1f2937; /* Tailwind gray-800 */
+            color: white;
+            transition: transform 0.3s ease-in-out;
+            z-index: 10;
+        }
+        .sticky-menu.scrolled {
+            transform: translateY(0);
+            
+        }
+        .sticky-menu:not(.scrolled) {
+            
+            transform: translateY(0);
+        }
+        .fade{ animation: bounceIn 0.5s ease-in-out forwards;
+        }
+
+    </style>
+        
+    
+</head>
+<body class="bg-[#64748b] text-gray-900">
+ <!-- Header -->
+<header class="bg-gray-900 text-white fixed w-full z-50 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center p-4">
+        <!-- Logo -->
+        <h1 class="text-3xl font-extrabold tracking-wide transition-transform duration-300 hover:scale-105">
+            <a href="home.html" class="hover:text-blue-400">RJEARNING</a>
+        </h1>
+
+        <!-- Hamburger Menu Icon -->
+        <div id="menu-toggle" class="block lg:hidden cursor-pointer">
+            <div class="hamburger-line w-6 h-1 bg-white mb-1 transition duration-300"></div>
+            <div class="hamburger-line w-6 h-1 bg-white mb-1 transition duration-300"></div>
+            <div class="hamburger-line w-6 h-1 bg-white transition duration-300"></div>
+        </div>
+
+        <!-- Navigation -->
+        <nav id="nav-menu" class="hidden lg:flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-8 text-lg font-semibold absolute lg:relative top-full left-0 lg:top-auto lg:left-auto lg:w-auto w-full bg-gray-900 lg:bg-transparent p-4 lg:p-0 shadow-lg lg:shadow-none transition-all duration-300 ease-in-out">
+            <ul class="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-8">
+                <li>
+                    <a href="home.html" class="relative py-2 px-4 hover:bg-blue-400 hover:text-white transition-all duration-300 rounded-full border border-transparent hover:border-blue-400">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#about" class="relative py-2 px-4 hover:bg-blue-400 hover:text-white transition-all duration-300 rounded-full border border-transparent hover:border-blue-400">
+                        About
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact" class="relative py-2 px-4 hover:bg-blue-400 hover:text-white transition-all duration-300 rounded-full border border-transparent hover:border-blue-400">
+                        Contact
+                    </a>
+                </li>
+                <li>
+                    <a href="signup.html" class="relative py-2 px-4 hover:bg-blue-400 hover:text-white transition-all duration-300 rounded-full border border-transparent hover:border-blue-400">
+                        Sign Up
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- JavaScript for Hamburger Menu Toggle -->
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('hidden');
+        
+        // Animation for Hamburger Icon
+        menuToggle.classList.toggle('open');
+        if(menuToggle.classList.contains('open')) {
+            menuToggle.querySelectorAll('.hamburger-line').forEach((line, idx) => {
+                if(idx === 0) line.classList.add('transform', 'rotate-45', 'translate-y-2');
+                if(idx === 1) line.classList.add('opacity-0');
+                if(idx === 2) line.classList.add('transform', '-rotate-45', '-translate-y-2');
+            });
+        } else {
+            menuToggle.querySelectorAll('.hamburger-line').forEach((line, idx) => {
+                if(idx === 0) line.classList.remove('transform', 'rotate-45', 'translate-y-2');
+                if(idx === 1) line.classList.remove('opacity-0');
+                if(idx === 2) line.classList.remove('transform', '-rotate-45', '-translate-y-2');
+            });
+        }
+    });
+</script>
+<!-- About Section -->
+<section id="about" class="py-20 bg-gray-900 text-white">
+    <div class="container mx-auto px-4 lg:flex lg:items-center lg:justify-between">
+        
+        <!-- Text Section -->
+        <div class="lg:w-1/2">
+            <h2 class="text-4xl font-bold mb-4">RJ GROUP OF
+                COMPANIES</h2>
+            <p class="text-lg leading-relaxed text-gray-400 mb-6">
+                RJ Group of Companies is creating
+its own <br> website anyone looking 
+for work from home <br> opportunities.
+We will ensure that our <br> users are 
+financially stable.
+            </p>
+            <a href="#" class="inline-block bg-transparent border border-white text-white py-2 px-6 rounded-md hover:bg-white hover:text-gray-900 transition duration-300">
+                Learn More
+            </a>
+        </div>
+        
+        <!-- Slideshow Section -->
+        <div class="relative lg:w-1/2 h-[70vh] mt-10 lg:mt-0 lg:ml-10 overflow-hidden rounded-lg shadow-lg">
+            <!-- Slides -->
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="slide fade w-full h-full absolute">
+                    <img src="./marvin-meyer-SYTO3xs06fU-unsplash.jpg" alt="Slide 1" class="object-cover w-full h-full rounded-lg">
+                </div>
+                <div class="slide fade w-full h-full absolute">
+                    <img src="./thought-catalog-505eectW54k-unsplash.jpg" alt="Slide 2" class="object-cover w-full h-full rounded-lg">
+                </div>
+                <div class="slide fade w-full h-full absolute">
+                    <img src="./piggybank-oqkmdriPiHM-unsplash.jpg" alt="Slide 3" class="object-cover w-full h-full rounded-lg">
+                </div>
+            </div>
+            
+            <!-- Caption Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent flex items-end p-6">
+                <h3 class="text-2xl font-semibold text-white shadow-lg">Innovative Solutions for Every Challenge</h3>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- JavaScript for Slideshow -->
+    <script>
+        let slideIndex = 0;
+
+        function showSlides() {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach((slide) => {
+                slide.style.opacity = '0';
+                slide.classList.remove('fade');
+            });
+
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            if (slideIndex < 1) { slideIndex = slides.length; }
+
+            slides[slideIndex - 1].style.opacity = '1';
+            slides[slideIndex - 1].classList.add('fade');
+
+            setTimeout(showSlides, 5000); // Change slide every 5 seconds
+        }
+
+        function plusSlides(n) {
+            slideIndex += n - 1; // Adjust index to reflect navigation
+            showSlides();
+        }
+
+        showSlides(); // Initial call to start the slideshow
+    </script>
+
+
+<!-- Hero Section -->
+<section id="hero" class="relative bg-white text-darkBlue py-16">
+    <div class="container mx-auto text-center lg:flex lg:items-center lg:justify-between">
+        <!-- Left Side: Text Section -->
+        <div class="lg:w-1/2 text-left lg:pr-12 mb-8 lg:mb-0">
+            <h2 class="text-5xl font-extrabold mb-4 animate-fade-in-down text-darkBlue">Discover Our Premium Services</h2>
+            <p class="text-lg mb-6 animate-fade-in-up text-gray-600 leading-relaxed">Our aim is that our user get freedom
+                from financial problems and grow up
+                their skills with us. Now We are
+                introducing RJ Earnings. Our user watch
+                videos and explore informative material
+                and earn from videos.</p>
+            <a href="signup.html" class="bg-darkBlue text-white py-3 px-8 rounded-full font-semibold hover:bg-indigo-700 transition duration-300 transform hover:scale-105">Sign Up Now</a>
+        </div>
+        
+        <!-- Right Side: Placeholder Image -->
+        <div class="lg:w-1/2 flex justify-center lg:justify-end">
+            <div class="relative w-3/4 h-[350px] bg-gray-100 rounded-lg shadow-lg overflow-hidden animate-pulse">
+                <img src="./heather-gill-WlhfyAHmpII-unsplash.jpg" alt="Hero Image" class="object-cover w-full h-full rounded-lg">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Animations -->
+<style>
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .animate-fade-in-down {
+        animation: fadeInDown 0.8s ease-out forwards;
+    }
+</style>
+
+
+
+
+
+<!-- Services Section -->
+<section id="services" class="py-20 bg-gray-900 text-white">
+    <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-12">Our Services</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <!-- Service 1 -->
+            <div class="group bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+                <div class="overflow-hidden rounded-lg mb-6">
+                    <img src="./bantar-prakoso-eGYsdX6WghA-unsplash.jpg" alt="Service 1" class="w-full h-auto rounded-lg transform group-hover:scale-105 transition duration-300">
+                </div>
+                <h3 class="text-2xl font-semibold mb-4 group-hover:text-gray-200 transition duration-300">TIME</h3>
+                <p class="text-gray-400 mb-4">In this site, we will Provide videos <br>
+                    to users. Users can earn money by <br>
+                    watching videos.
+                    .</p>
+                <a href="#" class="text-blue-500 font-semibold hover:text-blue-400 transition duration-300">Learn More &rarr;</a>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="group bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+                <div class="overflow-hidden rounded-lg mb-6">
+                    <img src="/adrian-swancar-JXXdS4gbCTI-unsplash.jpg" alt="Service 2" class="w-full h-auto rounded-lg transform group-hover:scale-105 transition duration-300">
+                </div>
+                <h3 class="text-2xl font-semibold mb-4 group-hover:text-gray-200 transition duration-300">PRESENCE</h3>
+                <p class="text-gray-400 mb-4">s
+                    to users. Users can earn money by 
+                    watching videos.
+                    In this video we Will deliver
+                    information about many fields for
+                    user.</p>
+                <a href="#" class="text-blue-500 font-semibold hover:text-blue-400 transition duration-300">Learn More &rarr;</a>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="group bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+                <div class="overflow-hidden rounded-lg mb-6">
+                    <img src="./erik-mclean-97BUHBwHi2g-unsplash.jpg" alt="Service 3" class="w-full h-auto rounded-lg transform group-hover:scale-105 transition duration-300">
+                </div>
+                <h3 class="text-2xl font-semibold mb-4 group-hover:text-gray-200 transition duration-300">CASH</h3>
+                <p class="text-gray-400 mb-4">The most intriguing aspect is that <br>
+                    users will be able to work from <br>
+                    home and make money.</p>
+                <a href="#" class="text-blue-500 font-semibold hover:text-blue-400 transition duration-300">Learn More &rarr;</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="bg-gray-100 py-20">
+    <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-extrabold text-gray-800 mb-12 animate-fade-in-down">What Our Clients Say</h2>
+        <div class="flex flex-wrap justify-center gap-8">
+            
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card bg-white p-8 rounded-lg shadow-lg max-w-sm transition-transform duration-300 hover:shadow-2xl hover:-translate-y-2">
+                <p class="text-gray-700 mb-4 text-lg italic">“This service changed my life! Highly recommend to anyone looking to improve their business.”</p>
+                <p class="font-bold text-indigo-600">Ahmad Khan</p>
+                <p class="text-gray-500">CEO, KLV Inc.</p>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card bg-white p-8 rounded-lg shadow-lg max-w-sm transition-transform duration-300 hover:shadow-2xl hover:-translate-y-2">
+                <p class="text-gray-700 mb-4 text-lg italic">“Excellent experience from start to finish. The team was professional and attentive.”</p>
+                <p class="font-bold text-indigo-600">John Smith</p>
+                <p class="text-gray-500">Marketing Director, Crp Co.</p>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card bg-white p-8 rounded-lg shadow-lg max-w-sm transition-transform duration-300 hover:shadow-2xl hover:-translate-y-2">
+                <p class="text-gray-700 mb-4 text-lg italic">“A game-changer for our company. The results speak for themselves.”</p>
+                <p class="font-bold text-indigo-600">Jan Ali</p>
+                <p class="text-gray-500">Founder, Startup Corp</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Animations and Styles -->
+<style>
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-in-down {
+        animation: fadeInDown 1s ease-out forwards;
+    }
+
+    .testimonial-card {
+        opacity: 0;
+        animation: fadeInUp 1s ease-out forwards;
+        animation-delay: calc(var(--testimonial-index) * 0.3s);
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<script>
+    // Add delay based on index for staggered fade-in effect
+    document.querySelectorAll('.testimonial-card').forEach((card, index) => {
+        card.style.setProperty('--testimonial-index', index);
+    });
+</script>
+
+
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-gray-900 text-white">
+    <div class="container mx-auto px-4">
+        <!-- Header Section -->
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold mb-4">Get In Touch</h2>
+            <p class="text-lg text-gray-400">Have any questions? We'd love to hear from you. Fill out the form and we’ll get back to you promptly.</p>
+        </div>
+        
+        <!-- Form Section -->
+        <div class="flex justify-center">
+            <div class="w-full max-w-xl bg-gray-800 p-8 rounded-lg shadow-lg">
+                <form action="#" method="POST">
+                    <!-- Name Field -->
+                    <div class="mb-6">
+                        <label for="name" class="block text-gray-400 text-sm font-medium mb-2">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" class="w-full p-4 bg-gray-700 border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300" required>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="mb-6">
+                        <label for="email" class="block text-gray-400 text-sm font-medium mb-2">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="johndoe@example.com" class="w-full p-4 bg-gray-700 border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300" required>
+                    </div>
+
+                    <!-- Message Field -->
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-400 text-sm font-medium mb-2">Your Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Type your message here..." class="w-full p-4 bg-gray-700 border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300" required></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit" class="bg-blue-500 text-white py-3 px-6 rounded-md font-semibold hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </body>
+       
